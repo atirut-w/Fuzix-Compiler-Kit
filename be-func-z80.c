@@ -14,14 +14,14 @@
 /* Export the C symbol */
 void gen_export(const char *name)
 {
-	printf("	.export _%s\n", name);
+	printf("	.global _%s\n", name);
 }
 
 void gen_segment(unsigned segment)
 {
 	switch(segment) {
 	case A_CODE:
-		printf("\t.%s\n", codeseg);
+		printf("\t.text\n");
 		break;
 	case A_DATA:
 		printf("\t.data\n");
@@ -30,7 +30,7 @@ void gen_segment(unsigned segment)
 		printf("\t.bss\n");
 		break;
 	case A_LITERAL:
-		printf("\t.literal\n");
+		// printf("\t.literal\n");
 		break;
 	default:
 		error("gseg");
@@ -351,7 +351,7 @@ void gen_value(unsigned type, unsigned long value)
 void gen_start(void)
 {
 	/* For now.. */
-	printf("\t.z80\n");
+	// printf("\t.z80\n");
 }
 
 void gen_end(void)
