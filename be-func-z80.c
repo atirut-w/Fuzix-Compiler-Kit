@@ -14,7 +14,7 @@
 /* Export the C symbol */
 void gen_export(const char *name)
 {
-	printf("	.global _%s\n", name);
+	printf("	.global %s\n", name);
 }
 
 void gen_segment(unsigned segment)
@@ -41,7 +41,7 @@ void gen_segment(unsigned segment)
    gen_frame for the most part */
 void gen_prologue(const char *name)
 {
-	printf("_%s:\n", name);
+	printf("%s:\n", name);
 	unreachable = 0;
 }
 
@@ -293,7 +293,7 @@ void gen_case_data(unsigned tag, unsigned entry)
 
 void gen_data_label(const char *name, unsigned align)
 {
-	printf("_%s:\n", name);
+	printf("%s:\n", name);
 }
 
 void gen_space(unsigned value)

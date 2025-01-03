@@ -1986,7 +1986,7 @@ unsigned gen_node(register struct node *n)
 	case T_CALLNAME:
 		if (cpufeat & 1)
 			printf("\tpush af\n");
-		printf("\tcall _%s+%u\n", namestr(n->snum), v);
+		printf("\tcall %s+%u\n", namestr(n->snum), v);
 		if (cpufeat & 1)
 			printf("\tpop af\n");
 		return 1;
